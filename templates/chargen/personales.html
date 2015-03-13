@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %} Chargen{% endblock %}
+{% block cargador %}
+    <link rel='stylesheet' href='{{ STATIC_URL }}css/ficha.css'/>
+{% endblock %}
+{% block contenido %}
+    {% block head %}
+        {{ wizard.form.media }}
+    {% endblock %}
+    <td>Paso {{ wizard.steps.step1 }} de {{ wizard.steps.count }}</td>
+<form action="" method="post">{% csrf_token %}
+{{ wizard.management_form }}
+{% if wizard.form.forms %}
+    {{ wizard.form.management_form }}
+    {% for form in wizard.form.forms %}
+        {{ form }}
+    {% endfor %}
+{% else %}
+    {{ wizard.form }}
+{% endif %}
+{% if wizard.steps.prev %}
+<button name="wizard_goto_step" type="submit" value="{{ wizard.steps.first }}">Anterior</button>
+<button name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}">Siguiente</button>
+{% endif %}
+<input type="submit" value="Seguir" />
+</form>
+{% endblock %}

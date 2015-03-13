@@ -1,0 +1,36 @@
+table.text {
+    border-collapse:separate;
+    border:solid black 1px;
+    border-radius:20px;
+    -moz-border-radius:20px;
+}
+td.text{
+    border-left: solid black 1px;
+}
+td.int{
+    font-size: 10px;
+}
+td.tint{
+    border-bottom: solid black 1px;
+}
+INPUT {
+	border:			none;
+	border-bottom:		1px solid black;
+	color:			blue;
+	font-family:		cursive,sans-serif;
+	font-size:		12px;
+	width:			100%;
+	}
+
+.borde{
+    border: solid black 1px;
+}
+.hab td{
+    font-size:14px;
+    padding: 2px;
+}
+
+ul.errorlist li {
+    background-color: red;
+    list-style: none;
+}

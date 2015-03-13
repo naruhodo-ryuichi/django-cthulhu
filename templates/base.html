@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="cthulhu">
+<head>
+    <meta charset="utf-8">
+    <title> {% block title %}{% endblock %}</title>
+    <link rel='stylesheet' href='{{ STATIC_URL }}css/app.css'/>
+</head>
+<body>
+<div class="contenedor">
+    {% block cargador %}
+    {% endblock %}
+
+    <div class="cabecera">
+        {% block cabecera %}
+        {% endblock %}
+    </div>
+    <div class="barraizq">
+        {% block barraizq %}
+        {% endblock %}
+    </div>
+    <div class="contenido">
+        {% block contenido %}
+        {% endblock %}
+    </div>
+</div>
+</body>
+</html>

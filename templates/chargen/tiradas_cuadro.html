@@ -1,0 +1,19 @@
+<th width="1%">{{ car.label }}</th>
+<td width="24%">
+    <table class="text">
+        <tr>
+
+            <td>{{ car }}</td>
+            <td class="text">
+                <table>
+                    <tr>
+                        <td class="tint int">{% widthratio car.value 2 1 %}</td>
+                    </tr>
+                    <tr>
+                        <td class="int">{% widthratio car.value 5 1 %}</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>

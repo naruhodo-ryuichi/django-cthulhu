@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %} Prueba{% endblock %}
+{% block cabecera %}{% include "tabs.html" with active_tab='tab2' %}{% endblock %}
+{% block barraizq %}{% include "escenarios/escenariolat.html" %}{% endblock %}
+{% block contenido %}
+    <h1>{{ escenario.nombre }}</h1>
+    <h2>{{ escenario.escena_set.all.0 }}</h2>
+<p>{{ escenario.escena_set.all.0.contenido }}<p>
+{% endblock %}

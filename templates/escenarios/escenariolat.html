@@ -1,0 +1,9 @@
+<ul class="barraizq">
+    <li><a href="#">Editar</a></li>
+    <li><a href="#">Exportar a Wiki</a></li>
+</ul>
+<ul class="barraizq">
+    {% for escena in escenario.escena_set.all %}
+    <li><a href="#">{{ escena.nombre }}</a></li>
+    {% endfor %}
+    </ul>

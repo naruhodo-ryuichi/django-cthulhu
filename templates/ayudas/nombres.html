@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Generador de nombres{% endblock %}
+{% block cabecera %}{% include "tabs.html" with active_tab='tab4' %}{% endblock %}
+{% block barraizq %}
+    {% include "ayudas/ayudaslat.html" %}
+{% endblock %}
+{% block contenido %}
+    <script type="text/javascript" src="{{ STATIC_URL }}js/angular.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/app.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/nombrectrl.js"></script>
+    <div ng-controller="nombreCtrl">
+        <h1>Generador de nombres</h1>
+
+        <div class="btn" ng-click="nombrehgen()"> Nombre de Hombre</div>
+        [{nombreh}]
+        <div class="btn" ng-click="nombrefgen()"> Nombre de Mujer</div>
+        [{nombref}]
+    </div>
+{% endblock %}

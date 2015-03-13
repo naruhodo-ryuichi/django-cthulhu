@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Generador de nombres{% endblock %}
+{% block cabecera %}{% include "tabs.html" with active_tab='tab4' %}{% endblock %}
+{% block barraizq %}
+    {% include "ayudas/ayudaslat.html" %}
+{% endblock %}
+{% block contenido %}
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <div ng-controller="tiradaCtrl"
+        <h1>Generador de Tiradas</h1>
+        <input type="text" ng-model="tirada"/>
+        <p>Res: <span ng-bind="tirada"></span></p>
+{% endblock %}

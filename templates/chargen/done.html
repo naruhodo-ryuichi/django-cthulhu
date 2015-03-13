@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block title %} Chargen{% endblock %}
+{% block cargador %}
+    <link rel='stylesheet' href='{{ STATIC_URL }}css/ficha.css'/>
+{% endblock %}
+{% block contenido %}
+{{ form_data }}
+{% endblock %}

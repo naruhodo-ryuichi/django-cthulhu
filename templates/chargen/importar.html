@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %} Prueba{% endblock %}
+{% block cabecera %}{% include "tabs.html" with active_tab='tab2' %}{% endblock %}
+{% block contenido %}
+    <h1>Importar de Byakhee</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        Ruta de la ficha:<input type="file" name="ruta"/>
+
+        <h1>Importar de texto</h1>
+        texto a parsear:<textarea cols="40" rows="5" name="texto">
+    </textarea>
+        <input type="submit" name="submit" value="Importar"/>
+    </form>
+{% endblock %}

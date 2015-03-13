@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% block title %} Chargen{% endblock %}
+{% block cargador %}
+    <link rel='stylesheet' href='{{ STATIC_URL }}css/ficha.css'/>
+{% endblock %}
+{% block contenido %}
+    {% block head %}
+        {{ wizard.form.media }}
+    {% endblock %}
+    <td>Paso {{ wizard.steps.step1 }} de {{ wizard.steps.count }}</td>
+    <form action="" method="post">{% csrf_token %}
+        {{ wizard.management_form }}
+        <table>
+            <tr>
+                <td>
+
+                    <table width="100%" cellpadding="0" cellspacing="0" class="borde">
+                        <div class="cabecera"><span>Características</span></div>
+                        <tbody>
+                        <tr>
+                            {% include "chargen/tiradas_cuadro.html" with car=form.FUE %}
+                            {% include "chargen/tiradas_cuadro.html" with car=form.DES %}
+                            {% include "chargen/tiradas_cuadro.html" with car=form.POD %}
+                        </tr>
+                        <tr>
+                            {% include "chargen/tiradas_cuadro.html" with car=form.CON %}
+                            {% include "chargen/tiradas_cuadro.html" with car=form.APA %}
+                            {% include "chargen/tiradas_cuadro.html" with car=form.EDU %}
+                        </tr>
+                        <tr>
+                            {% include "chargen/tiradas_cuadro.html" with car=form.TAM %}
+                            {% include "chargen/tiradas_cuadro.html" with car=form.INT %}
+                           <th width="1%">EDAD</th>
+                            <td width="24%">
+                                {{ form.edad }}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td>
+                    <table width="100%" cellpadding="0" cellspacing="0" class="borde">
+                        <div class="cabecera"><span>Derivadas</span></div>
+                        <tr>
+                            <td align="right">Idea:</td>
+                            <td>{{ form.INT.value }}</td>
+                        </tr>
+                        <tr>
+                            <td align="right">Conocimientos:</td>
+                            <td>{{ form.EDU.value }}</td>
+                        </tr>
+                        <tr>
+                            <td align="right">Suerte:</td>
+                            <td>{{ form.POD.value }}</td>
+                        </tr>
+                        <tr>
+                            <td align="right">Cordura:</td>
+                            <td>{{ form.POD.value }}</td>
+                        </tr>
+                        <tr>
+                            <td align="right">Bonif. Daño:</td>
+                            <td>{{ form.bd.value }}</td>
+                        </tr>
+                        <tr>
+                            <td align="right">Ptos. Habilidad:</td>
+                            <td align="right">{{ form.EDU.value }}</td>
+                        </tr>
+                        <tr>
+                            <td align="right">Ptos. Interes:</td>
+                            <td align="right">{{ form.INT.value }}</td>
+                        </tr>
+                        <tr>
+                            <td align="right">Ptos. Vida:</td>
+                            <td>{{ form.pv.value }}</td>
+                        </tr>
+                        <tr>
+                            <td align="right">Ptos. Magia:</td>
+                            <td>{{ form.pm.value }}</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        {% if wizard.steps.prev %}
+            <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.first }}">Anterior</button>
+            <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}">Siguiente</button>
+        {% endif %}
+        <input type="submit" value="Seguir" />
+    </form>
+{% endblock %}

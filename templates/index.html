@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %} Prueba{% endblock %}
+{% block cabecera %}{% include "tabs.html" with active_tab='tab1' %}{% endblock %}
+{% block contenido %}
+    <h1>Indice de Contenidos</h1>
+    <img src="{{ STATIC_URL }}hpl.jpg" />
+    <ul>
+        <li><b>Indice:</b> Aquí</li>
+        <li><b>Escenarios:</b> Lista de escenarios</li>
+        <li><b>Chargen:</b> Generador de Personajes</li>
+        <li><b>Ayudas:</b> Generadores de Nombres y Direcciones</li>
+        <li><b>Admin:</b> Acceso directo a la db</li>
+    </ul>
+
+{% endblock %}

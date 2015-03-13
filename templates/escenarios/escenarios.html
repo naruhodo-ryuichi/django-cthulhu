@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %} Prueba{% endblock %}
+{% block cabecera %}{% include "tabs.html" with active_tab='tab2' %}{% endblock %}
+{% block barraizq %}{% include "escenarios/escenarioslat.html" %}{% endblock %}
+{% block contenido %}
+<p>Selecciona un escenario:</p>
+    {% for escenario in escenarios %}
+    <li><a href="escenarios/escenario/{{ escenario.id }}">{{ escenario.nombre}}</a>{{ escenario.lugares.all.0.nombre }}</li>
+    {% endfor %}
+
+{% endblock %}
